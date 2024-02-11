@@ -53,6 +53,20 @@ export class ApiService {
         return fetchData('editor/test', 'GET', {header: JSONheaders});
     }
 
+    static async sendImageRequest(imageFile: File) {
+        const headers = new Headers();
+        headers.append('Access-Control-Allow-Origin', '*');
+        const body = new FormData();
+        body.append('image', imageFile);
+        return fetchData(
+            'editor/edit',
+            'POST',
+            body,
+            headers
+        );
+    }
+
+    /*
     static async sendEditRequest(image: File, prompt: string) {
         const formData = new FormData();
         formData.append('image', image);
@@ -61,4 +75,5 @@ export class ApiService {
         headers.append('Access-Control-Allow-Origin', '*');
         return fetchData('editor/edit', 'POST', formData, headers);
     }
+    */
 }
