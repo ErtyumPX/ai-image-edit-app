@@ -9,7 +9,6 @@ const CameraFragment: React.FC = () => {
   const [image, setImage] = useState<string | undefined>(undefined);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isWaiting, setIsWaiting] = useState<boolean>(false);
-  const [curMetadata, setCurMetadata] = useState<string>('');
 
   const startCamera = async () => {
     try {
@@ -41,7 +40,6 @@ const CameraFragment: React.FC = () => {
       if (ctx) {
         ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
         const metaData = canvas.toDataURL('image/png').split(',')[0];
-        setCurMetadata(metaData);
         canvas.toBlob((blob) => {
           if (blob) {
             const file = new File([blob], 'snapshot.png', { type: 'image/png' });
