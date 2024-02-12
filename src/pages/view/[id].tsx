@@ -1,8 +1,6 @@
-// pages/photos/[id].tsx
-
 import { ApiService } from '@/services/ApiService';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const PhotoPage = () => {
   const router = useRouter();

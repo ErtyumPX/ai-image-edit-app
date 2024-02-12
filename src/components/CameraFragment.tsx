@@ -61,33 +61,12 @@ const CameraFragment: React.FC = () => {
     setIsWaiting(true);
     const response = await ApiService.sendImageRequest(imageFile);
     console.log(response);
-    /*
-    const blob = await response.blob(); // Assuming the API response is a Blob
-    const reader = new FileReader();
-    reader.onload = () => {
-        const dataURL = reader.result as string;
-        setImage(dataURL);
-    };
-    reader.readAsDataURL(blob);
-    */
     const imageUrl = 'data:image/png;base64,' + response.image;
     setImageID(response.image_id);
     setQrUrl(pageUrl + response.image_id);
     setImage(imageUrl);
     setIsWaiting(false);
   }
-  /*
-  const sendImagetoAPI = async (image64: string) => {
-      setIsWaiting(true);
-      const header = image64.split(',')[0];
-      const data = image64.split(',')[1];
-      const response = await ApiService.sendImageRequest(data);
-      console.log(response);
-      const fullImage = header + ',' + response.image;
-      setImage(fullImage);
-      setIsWaiting(false);
-    }
-  */
     
   return (
     <div>
