@@ -67,7 +67,7 @@ export class ApiService {
     }
 
     static async getImageRequest(imageId: string) {
-      return fetchData('editor/get', 'GET', {id: imageId}, JSONheaders);
+      return fetchData(`editor/get/${imageId}`, 'GET', null, JSONheaders);
     }
 
     /*
