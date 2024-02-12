@@ -9,6 +9,7 @@ const CameraFragment: React.FC = () => {
   const [image, setImage] = useState<string | undefined>(undefined);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isWaiting, setIsWaiting] = useState<boolean>(false);
+  const [imageID, setImageID] = useState<string | undefined>(undefined);
 
   const startCamera = async () => {
     try {
@@ -66,6 +67,7 @@ const CameraFragment: React.FC = () => {
     reader.readAsDataURL(blob);
     */
     const imageUrl = 'data:image/png;base64,' + response.image;
+    setImageID(response.image_id);
     setImage(imageUrl);
     setIsWaiting(false);
   }
