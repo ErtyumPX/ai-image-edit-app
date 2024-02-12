@@ -2,6 +2,9 @@
 
 import { useState, useRef } from 'react';
 import { ApiService } from '@/services/ApiService';
+import QRCode from 'qrcode.react';
+
+const pageUrl = 'http://localhost:5000/view/';
 
 const CameraFragment: React.FC = () => {
   const [stream, setStream] = useState<MediaStream | null>(null);
@@ -10,6 +13,7 @@ const CameraFragment: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isWaiting, setIsWaiting] = useState<boolean>(false);
   const [imageID, setImageID] = useState<string | undefined>(undefined);
+  const [qrUrl, setQrUrl] = useState<string | undefined>(undefined);
 
   const startCamera = async () => {
     try {
@@ -68,6 +72,7 @@ const CameraFragment: React.FC = () => {
     */
     const imageUrl = 'data:image/png;base64,' + response.image;
     setImageID(response.image_id);
+    setQrUrl(pageUrl + response.image_id);
     setImage(imageUrl);
     setIsWaiting(false);
   }
@@ -91,6 +96,7 @@ const CameraFragment: React.FC = () => {
       <button onClick={takeSnapshot}>Take Snapshot</button>
       <video autoPlay ref={videoRef} />
       <img src={image} alt="Snapshot" />
+      {imageID && <QRCode value={qrUrl as string} size={256} />}
     </div>
   );
 };
