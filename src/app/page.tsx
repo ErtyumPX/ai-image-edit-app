@@ -1,12 +1,13 @@
 'use client';
 
-import TestComponent from "@/components/TestComponent";
 import CameraFragment from "@/components/CameraFragment";
+import Capture from "@/components/Capture";
+
 
 export default function Home() {
   return (
     <main>
-      <CameraFragment />
+      <Capture />
     </main>
   );
 }
