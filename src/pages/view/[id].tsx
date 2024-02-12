@@ -9,10 +9,15 @@ const PhotoPage = () => {
 
   const fetchPhotosById = async () => {
     try {
+      const pattern = new RegExp("[a-zA-Z0-9]{10}");
+      if (!pattern.test(id as string)) {
+        throw new Error('Invalid ID');
+      }
       const gotImage = await ApiService.getImageRequest(id as string);
       const im = 'data:image/png;base64,' + gotImage;
       setImage(im);
-    } catch (error) {
+    } 
+    catch (error) {
       console.error('Error fetching photos:', error);
     }
   };

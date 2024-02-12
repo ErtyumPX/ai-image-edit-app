@@ -60,7 +60,7 @@ export class ApiService {
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Content-Type', 'application/json');
         const response = await fetchData(`editor/get/${imageId}`, 'GET', null, headers);
-        return response.json();
+        return response.text();
     }
 
 }
