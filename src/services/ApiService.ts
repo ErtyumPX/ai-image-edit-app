@@ -66,6 +66,10 @@ export class ApiService {
         );
     }
 
+    static async getImageRequest(imageId: string) {
+      return fetchData('editor/get', 'GET', {id: imageId}, JSONheaders);
+    }
+
     /*
     static async sendEditRequest(image: File, prompt: string) {
         const formData = new FormData();
