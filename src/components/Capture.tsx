@@ -1,8 +1,12 @@
-'user client';
+'use client';
 
 import { useState, useRef, useEffect } from 'react';
 
-const Capture: React.FC = () => {
+interface CaptureProps {
+  confirmCallback: (image64: string) => Promise<void>;
+}
+
+const Capture: React.FC<CaptureProps> = ({confirmCallback}) => {
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [image, setImage] = useState<string | undefined>(undefined);
@@ -72,6 +76,12 @@ const Capture: React.FC = () => {
     startCamera();
   }
 
+  const confirmImage = () => {
+    if (image) {
+      confirmCallback(image);
+    }
+  }
+
 
   return (
     <div>
@@ -81,7 +91,11 @@ const Capture: React.FC = () => {
       }
       { image
         ? <button onClick={retakePhoto}>Retake</button>
-        : <button onClick={captureSnapshot}>Capture</button>
+        :
+        <>
+          <button onClick={captureSnapshot}>Capture</button>
+          <button onClick={confirmImage}>Confirm</button>
+        </>
       }
   </div>
   );
