@@ -44,7 +44,6 @@ const CameraFragment: React.FC = () => {
       const ctx = canvas.getContext('2d');
       if (ctx) {
         ctx.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
-        const metaData = canvas.toDataURL('image/png').split(',')[0];
         canvas.toBlob((blob) => {
           if (blob) {
             const file = new File([blob], 'snapshot.png', { type: 'image/png' });
