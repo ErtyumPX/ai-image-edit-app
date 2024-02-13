@@ -5,6 +5,7 @@ export interface Prompt {
     afterImage: string
 }
 
+
 const disneyPrompt: Prompt = {
     title: "Disney",
     prompt: "A Disney character",

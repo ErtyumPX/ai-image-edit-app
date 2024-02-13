@@ -3,16 +3,17 @@
 import { useState, useRef, useEffect } from 'react';
 
 interface CaptureProps {
-  confirmCallback: (image64: string) => Promise<void>;
+  confirmCaptureCallback: (image64: string) => Promise<void>;
 }
 
-const Capture: React.FC<CaptureProps> = ({ confirmCallback }) => {
+const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [image, setImage] = useState<string | undefined>(undefined);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
+    console.log(typeof confirmCaptureCallback);
     handleOnPageLoad();
   }, []);
 
@@ -78,9 +79,9 @@ const Capture: React.FC<CaptureProps> = ({ confirmCallback }) => {
 
   const confirmImage = () => {
     if (image) {
-      console.log(confirmCallback);
-      console.log(typeof confirmCallback);
-      confirmCallback(image);
+      console.log(confirmCaptureCallback);
+      console.log(typeof confirmCaptureCallback);
+      confirmCaptureCallback(image);
     }
   }
 

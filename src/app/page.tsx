@@ -1,13 +1,11 @@
 'use client';
 
-import CameraFragment from "@/components/CameraFragment";
-import Capture from "@/components/Capture";
-
+import AIPrompter from "@/components/AIPrompter";
 
 export default function Home() {
   return (
     <main>
-      <Capture />
+      <AIPrompter />
     </main>
   );
 }

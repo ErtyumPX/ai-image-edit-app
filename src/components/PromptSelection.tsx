@@ -2,10 +2,10 @@ import { useState, useRef, useEffect } from 'react';
 import { allPrompts, Prompt } from './prompts';
 
 interface PromptSelectionProps {
-  confirmCallback: (prompt: Prompt) => Promise<void>;
+  confirmSelectionCallback: (prompt: Prompt) => Promise<void>;
 }
 
-const PromptSelection: React.FC<PromptSelectionProps> = ({confirmCallback}) => {
+const PromptSelection: React.FC<PromptSelectionProps> = ({confirmSelectionCallback}) => {
   const [selectedPrompt, setSelectedPrompt] = useState<number | undefined>(undefined);
   const [beforeImage, setBeforeImage] = useState<string | undefined>(undefined);
   const [afterImage, setAfterImage] = useState<string | undefined>(undefined);
@@ -19,12 +19,11 @@ const PromptSelection: React.FC<PromptSelectionProps> = ({confirmCallback}) => {
     setSelectedPrompt(index);
     setBeforeImage(allPrompts[index].beforeImage);
     setAfterImage(allPrompts[index].afterImage);
-    confirmCallback(allPrompts[index]);
   }
 
   const confirmSelection = async () => {
     if (selectedPrompt !== undefined) {
-      confirmCallback(allPrompts[selectedPrompt]);
+      confirmSelectionCallback(allPrompts[selectedPrompt]);
     }
   }
 

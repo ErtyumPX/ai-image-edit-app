@@ -33,8 +33,12 @@ const AIPrompter: React.FC = () => {
 
   return (
     <>
-      {state === AIPrompterState.CAPTURE && <Capture confirmCallback={confirmImageCallback} />}
-      {state === AIPrompterState.SELECT_PROMPT && <PromptSelection confirmCallback={confirmPromptCallback} />}
+      {state === AIPrompterState.CAPTURE && 
+        <Capture confirmCaptureCallback={confirmImageCallback} />
+      }
+      {state === AIPrompterState.SELECT_PROMPT && 
+        <PromptSelection confirmSelectionCallback={confirmPromptCallback} />
+      }
       {state === AIPrompterState.OUTPUT && image && selectedPrompt &&
         <ImageToOutput rawImage={image} prompt={selectedPrompt} restartCallback={restartCallback}/>
       }
