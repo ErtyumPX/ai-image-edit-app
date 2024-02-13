@@ -45,11 +45,12 @@ export class ApiService {
     }
 
 
-    static async sendImageRequest(imageFile: File) {
+    static async sendImageRequest(imageFile: File, prompt: string) {
         const headers = new Headers();
         headers.append('Access-Control-Allow-Origin', '*');
         const body = new FormData();
         body.append('image', imageFile);
+        body.append('prompt', prompt);
         const response = await fetchData('editor/edit', 'POST', body, headers);
         return response.json();
     }

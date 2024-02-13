@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import Capture from './Capture';
 import PromptSelection from './PromptSelection';
 import ImageToOutput from './ImageToOutput';
-import { Prompt } from './prompts';
+import { PromptData } from './prompts';
 
 enum AIPrompterState {
   CAPTURE,
@@ -12,7 +12,7 @@ enum AIPrompterState {
 
 const AIPrompter: React.FC = () => {
   const [image, setImage] = useState<string | undefined>(undefined);
-  const [selectedPrompt, setSelectedPrompt] = useState<Prompt | undefined>(undefined);
+  const [selectedPrompt, setSelectedPrompt] = useState<PromptData | undefined>(undefined);
   const [state, setState] = useState<AIPrompterState>(AIPrompterState.CAPTURE);
 
   const confirmImageCallback = async (image64: string): Promise<void> => {
@@ -20,7 +20,7 @@ const AIPrompter: React.FC = () => {
     setState(AIPrompterState.SELECT_PROMPT);
   }
 
-  const confirmPromptCallback = async (prompt: Prompt): Promise<void> => {
+  const confirmPromptCallback = async (prompt: PromptData): Promise<void> => {
     setSelectedPrompt(prompt);
     setState(AIPrompterState.OUTPUT);
   }
@@ -40,7 +40,7 @@ const AIPrompter: React.FC = () => {
         <PromptSelection confirmSelectionCallback={confirmPromptCallback} />
       }
       {state === AIPrompterState.OUTPUT && image && selectedPrompt &&
-        <ImageToOutput rawImage={image} prompt={selectedPrompt} restartCallback={restartCallback}/>
+        <ImageToOutput rawImage={image} promptData={selectedPrompt} restartCallback={restartCallback}/>
       }
     </>
   );

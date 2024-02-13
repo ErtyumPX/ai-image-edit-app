@@ -1,17 +1,17 @@
 import { useState, useRef, useEffect } from 'react';
-import { Prompt } from './prompts';
+import { PromptData } from './prompts';
 import { ApiService } from '@/services/ApiService';
 import QRCode from 'qrcode.react';
 
 interface ImageToOutputProps {
     rawImage: string;
-    prompt: Prompt;
+    promptData: PromptData;
     restartCallback: () => Promise<void>;
 }
 
 const pageUrl = 'http://localhost:5000/view/';
 
-const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, prompt, restartCallback}) => {
+const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, restartCallback}) => {
   const [shownImage, setShownImage] = useState<string>(rawImage);
   const [imageID, setImageID] = useState<string | undefined>(undefined);
   const [qrUrl, setQrUrl] = useState<string | undefined>(undefined);
@@ -23,7 +23,8 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, prompt, restartC
   const sendImagetoAPI = async (image64: string) => {
     const blob = await fetch(image64).then(r => r.blob());
     const imageFile =new File([blob], 'snapshot.png', { type: 'image/png' });
-    const response = await ApiService.sendImageRequest(imageFile);
+    const prompt = promptData.prompt;
+    const response = await ApiService.sendImageRequest(imageFile, prompt);
     console.log(response);
     const imageUrl = 'data:image/png;base64,' + response.image;
     setImageID(response.image_id);

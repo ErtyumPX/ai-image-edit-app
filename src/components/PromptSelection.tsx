@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { allPrompts, Prompt } from './prompts';
+import { allPrompts, PromptData } from './prompts';
 
 interface PromptSelectionProps {
-  confirmSelectionCallback: (prompt: Prompt) => Promise<void>;
+  confirmSelectionCallback: (prompt: PromptData) => Promise<void>;
 }
 
 const PromptSelection: React.FC<PromptSelectionProps> = ({confirmSelectionCallback}) => {
