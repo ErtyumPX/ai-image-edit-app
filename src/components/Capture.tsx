@@ -6,7 +6,7 @@ interface CaptureProps {
   confirmCallback: (image64: string) => Promise<void>;
 }
 
-const Capture: React.FC<CaptureProps> = ({confirmCallback}) => {
+const Capture: React.FC<CaptureProps> = ({ confirmCallback }) => {
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [image, setImage] = useState<string | undefined>(undefined);
@@ -53,7 +53,7 @@ const Capture: React.FC<CaptureProps> = ({confirmCallback}) => {
         clearInterval(interval);
         takeSnapshot();
       }
-    }, 1000);
+    }, 1);
   }
 
   const takeSnapshot = () => {
@@ -78,6 +78,8 @@ const Capture: React.FC<CaptureProps> = ({confirmCallback}) => {
 
   const confirmImage = () => {
     if (image) {
+      console.log(confirmCallback);
+      console.log(typeof confirmCallback);
       confirmCallback(image);
     }
   }
@@ -90,12 +92,12 @@ const Capture: React.FC<CaptureProps> = ({confirmCallback}) => {
         : <video autoPlay ref={videoRef} />
       }
       { image
-        ? <button onClick={retakePhoto}>Retake</button>
-        :
+        ? 
         <>
-          <button onClick={captureSnapshot}>Capture</button>
+          <button onClick={retakePhoto}>Retake</button>
           <button onClick={confirmImage}>Confirm</button>
         </>
+        : <button onClick={captureSnapshot}>Capture</button>
       }
   </div>
   );

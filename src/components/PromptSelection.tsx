@@ -6,12 +6,26 @@ interface PromptSelectionProps {
 }
 
 const PromptSelection: React.FC<PromptSelectionProps> = ({confirmCallback}) => {
-  const [selectedPrompt, setSelectedPrompt] = useState<Prompt | undefined>(undefined);
+  const [selectedPrompt, setSelectedPrompt] = useState<number | undefined>(undefined);
   const [beforeImage, setBeforeImage] = useState<string | undefined>(undefined);
   const [afterImage, setAfterImage] = useState<string | undefined>(undefined);
 
-  const selectPrompt = async (index: number) => {
+  useEffect(() => {
+    selectPrompt(0);
+  }, []);
 
+
+  const selectPrompt = async (index: number) => {
+    setSelectedPrompt(index);
+    setBeforeImage(allPrompts[index].beforeImage);
+    setAfterImage(allPrompts[index].afterImage);
+    confirmCallback(allPrompts[index]);
+  }
+
+  const confirmSelection = async () => {
+    if (selectedPrompt !== undefined) {
+      confirmCallback(allPrompts[selectedPrompt]);
+    }
   }
 
   return (
@@ -21,12 +35,14 @@ const PromptSelection: React.FC<PromptSelectionProps> = ({confirmCallback}) => {
         {allPrompts.map((prompt, index) => {
           return (
             <div key={index}>
-              <h2>{prompt.title}</h2>
-              <button onClick={() => selectPrompt(index)}>{prompt.title}</button>
+              <button onClick={() => selectPrompt(index)}> {prompt.title} </button>
             </div>
           );
         })}
       </div>
+      <img src={beforeImage} alt="before" />
+      <img src={afterImage} alt="after" />
+      <button onClick={confirmSelection}> Confirm </button>
     </div>
   );
 }
