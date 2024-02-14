@@ -25,7 +25,7 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, rest
     const imageFile =new File([blob], 'snapshot.png', { type: 'image/png' });
     const response = await ApiService.sendImageRequest(imageFile, promptData);
     console.log(response);
-    const imageUrl = 'data:image/png;base64,' + response.image;
+    const imageUrl = 'data:image/png;base64,' + response.artifacts[0].base64;
     setImageID(response.image_id);
     setQrUrl(pageUrl + response.image_id);
     setShownImage(imageUrl);
