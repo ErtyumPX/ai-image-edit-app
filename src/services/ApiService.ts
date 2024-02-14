@@ -60,12 +60,12 @@ export class ApiService {
     }
 
 
-    static async getImageRequest(imageId: string) {
+    static async getImageRequest(imageId: string, imageType: "raw" | "edited") {
         const headers = new Headers();
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Content-Type', 'application/json');
-        const response = await fetchData(`editor/get/${imageId}`, 'GET', null, headers);
-        return response.text();
+        const rawImageResponse = await fetchData(`storage/get/${imageId}/${imageType}`, 'GET', null, headers);
+        return rawImageResponse.text();
     }
 
 }
