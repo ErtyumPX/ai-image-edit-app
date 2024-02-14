@@ -1,16 +1,23 @@
 import { ApiService } from '@/services/ApiService';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const PhotoPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const [image64, setImage64] = useState<string | undefined>(undefined);
+  const [isAbleToShare, setIsAbleToShare] = useState(false);
+
+  useEffect(() => {
+    setIsAbleToShare(!!navigator.share);
+    // fetchPhotosById();
+  }, []);
 
   const fetchPhotosById = async () => {
     try {
       const pattern = new RegExp("[a-zA-Z0-9]{10}");
       if (!pattern.test(id as string)) {
+        console.error('Invalid ID: ', id);
         throw new Error('Invalid ID');
       }
       const requestedImage64 = await ApiService.getImageRequest(id as string);
@@ -60,9 +67,11 @@ const PhotoPage = () => {
         <>
           <img src={image64} alt="Snapshot" />
           <button onClick={downloadImage}> Download </button>
-          <button onClick={shareImage}> Share </button>
+          {isAbleToShare && 
+            <button onClick={shareImage}> Share </button>
+          }
         </>
-        : <button onClick={fetchPhotosById}>Fetch Photo</button>
+        : <button onClick={fetchPhotosById}> Fetch Photos </button>
       }
     </div>
   );
