@@ -23,8 +23,7 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, rest
   const sendImagetoAPI = async (image64: string) => {
     const blob = await fetch(image64).then(r => r.blob());
     const imageFile =new File([blob], 'snapshot.png', { type: 'image/png' });
-    const prompt = promptData.prompt;
-    const response = await ApiService.sendImageRequest(imageFile, prompt);
+    const response = await ApiService.sendImageRequest(imageFile, promptData);
     console.log(response);
     const imageUrl = 'data:image/png;base64,' + response.image;
     setImageID(response.image_id);

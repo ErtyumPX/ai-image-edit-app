@@ -1,3 +1,5 @@
+import { PromptData } from "@/components/prompts";
+
 const BASE_URL = 'http://localhost:3000';
 
 
@@ -45,12 +47,14 @@ export class ApiService {
     }
 
 
-    static async sendImageRequest(imageFile: File, prompt: string) {
+    static async sendImageRequest(imageFile: File, promptData: PromptData) {
         const headers = new Headers();
         headers.append('Access-Control-Allow-Origin', '*');
         const body = new FormData();
         body.append('image', imageFile);
-        body.append('prompt', prompt);
+        body.append('prompt', promptData.prompt);
+        body.append('strength', promptData.strength.toString());
+        body.append('style_preset', promptData.style_preset || '');
         const response = await fetchData('editor/edit', 'POST', body, headers);
         return response.json();
     }
