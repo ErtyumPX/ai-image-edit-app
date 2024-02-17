@@ -39,8 +39,12 @@ const PromptSelection: React.FC<PromptSelectionProps> = ({confirmSelectionCallba
           );
         })}
       </div>
-      <img src={beforeImage} alt="before" />
-      <img src={afterImage} alt="after" />
+      {beforeImage && afterImage && 
+      <>
+        <img src={beforeImage} alt="before" />
+        <img src={afterImage} alt="after" />
+      </>
+      }
       <button onClick={confirmSelection}> Confirm </button>
     </div>
   );
