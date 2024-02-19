@@ -1,25 +1,23 @@
 import { ApiService } from '@/services/ApiService';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import LoadingLayer from '@/components/LoadingLayer';
 
 const PhotoPage = () => {
   const router = useRouter();
-  const id: string = router.query.id as string;
   const [rawImage64, setRawImage64] = useState<string | undefined>(undefined);
   const [editedImage64, setEditedImage64] = useState<string | undefined>(undefined);
   const [isAbleToShare, setIsAbleToShare] = useState(false);
 
   useEffect(() => {
     setIsAbleToShare(!!navigator.share);
-    console.log(router.query);
-    try {
-      setTimeout(fetchPhotosById, 1000, router.query.id as string)
-    }
-    catch {
-      
-    }
-    //fetchPhotosById(id);
-  }, [router]);
+    setTimeout(
+      () => {
+        document.getElementById('fetchButton')?.click();
+      },
+      1000
+    );
+  }, []);
 
   const fetchPhotosById = async (id: string) => {
     try {
@@ -73,25 +71,31 @@ const PhotoPage = () => {
   return (
     <div>
       <h1>Photos for ID: {router.query.id}</h1>
-      {rawImage64 &&
+      {(rawImage64 && editedImage64) 
+      ?
         <>
           <img src={rawImage64} alt="Snapshot" />
           <button onClick={() => downloadImage(rawImage64)}> Download </button>
           {isAbleToShare && 
             <button onClick={() => shareImage(rawImage64)}> Share </button>
           }
-        </>
-      }
-      {editedImage64 &&
-        <>
           <img src={editedImage64} alt="Edited Snapshot" />
           <button onClick={() => downloadImage(editedImage64)}> Download </button>
           {isAbleToShare && 
             <button onClick={() => shareImage(editedImage64)}> Share </button>
           }
         </>
+      :
+        <>
+          <LoadingLayer />
+        </>
       }
-      <button onClick={() => fetchPhotosById(router.query.id as string)}> Fetch Photos </button>
+      <button 
+      id='fetchButton' 
+      style={{display: 'none'}}
+      onClick={() => fetchPhotosById(router.query.id as string)}>
+        Fetch Photos
+      </button>
       </div>
   );
 };
