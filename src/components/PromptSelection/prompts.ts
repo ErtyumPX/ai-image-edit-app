@@ -88,26 +88,65 @@ const vanGoghPrompt: PromptData = {
     cfg_scale: 35
 }
 
-const minecraftPrompt: PromptData = {
-    title: "Minecraft",
-    prompt: "A screenshot from Minecraft",
-    strength: 0.425,
-    style_preset: null,
-    beforeImage: "minecraft_before.png",
-    afterImage: "minecraft_after.png",
+const animePrompt: PromptData = {
+    title: "Anime",
+    prompt: "An anime scene",
+    strength: 0.5,
+    style_preset: "anime",
+    beforeImage: "anime_before.png",
+    afterImage: "anime_after.png",
     cfg_scale: 35
 }
 
-const legoPrompt: PromptData = {
-    title: "Lego",
-    prompt: "A lego minifigure standing in a room made of lego filled with other minifigures",
+const comicBookPrompt: PromptData = {
+    title: "Comic Book Style",
+    prompt: "A page from a comic book",
+    strength: 0.5,
+    style_preset: "comic-book",
+    beforeImage: "comicBook_before.png",
+    afterImage: "comicBook_after.png",
+    cfg_scale: 35
+}
+
+const ninetiesPrompt: PromptData = {
+    title: "90's",
+    prompt: "A photograph taken from 90's",
+    strength: 0.6,
+    style_preset: "analog-film",
+    beforeImage: "nineties_before.png",
+    afterImage: "nineties_after.png",
+    cfg_scale: 35
+}
+
+const yearbookPrompt: PromptData = {
+    title: "Highschool Yearbook",
+    prompt: "A photograph from a highschool yearbook",
     strength: 0.4,
     style_preset: null,
-    beforeImage: "lego_before.png",
-    afterImage: "lego_after.png",
+    beforeImage: "yearbook_before.png",
+    afterImage: "yearbook_after.png",
     cfg_scale: 35
 }
 
+const videoGamePrompt: PromptData = {
+    title: "Video Game",
+    prompt: "A screenshot from a video game",
+    strength: 0.45,
+    style_preset: "digital-art",
+    beforeImage: "videoGame_before.png",
+    afterImage: "videoGame_after.png",
+    cfg_scale: 35
+}
+
+const sketchPrompt: PromptData = {
+    title: "Sketch",
+    prompt: "A sketch drawing",
+    strength: 0.435,
+    style_preset: "line-art",
+    beforeImage: "sketch_before.png",
+    afterImage: "sketch_after.png",
+    cfg_scale: 35
+}
 
 export const allPrompts = [
     disneyPrompt,
@@ -116,6 +155,10 @@ export const allPrompts = [
     lotrPrompt,
     starWarsPrompt,
     vanGoghPrompt,
-    minecraftPrompt,
-    legoPrompt
+    animePrompt,
+    comicBookPrompt,
+    ninetiesPrompt,
+    yearbookPrompt,
+    videoGamePrompt,
+    sketchPrompt
 ]
