@@ -5,6 +5,7 @@ export interface PromptData {
     style_preset: string | null,
     beforeImage: string,
     afterImage: string
+    cfg_scale: number // 0-35 int
 }
 
 /* -- Style Presets --
@@ -33,7 +34,8 @@ const disneyPrompt: PromptData = {
     strength: 0.5,
     style_preset: 'digital-art',
     beforeImage: "disney_before.png",
-    afterImage: "disney_after.png"
+    afterImage: "disney_after.png",
+    cfg_scale: 35
 }
 
 const pixarPrompt: PromptData = {
@@ -42,7 +44,8 @@ const pixarPrompt: PromptData = {
     strength: 0.5,
     style_preset: null,
     beforeImage: "pixar_before.png",
-    afterImage: "pixar_after.png"
+    afterImage: "pixar_after.png",
+    cfg_scale: 35
 }
 
 const toyStoryPrompt: PromptData = {
@@ -51,7 +54,8 @@ const toyStoryPrompt: PromptData = {
     strength: 0.5,
     style_preset: 'digital-art',
     beforeImage: "toystory_before.png",
-    afterImage: "toystory_after.png"
+    afterImage: "toystory_after.png",,
+    cfg_scale: 35
 }
 
 const legoPrompt: PromptData = {
@@ -60,7 +64,8 @@ const legoPrompt: PromptData = {
     strength: 0.5,
     style_preset: null,
     beforeImage: "lego_before.png",
-    afterImage: "lego_after.png"
+    afterImage: "lego_after.png",
+    cfg_scale: 35
 }
 
 const randomPrompt: PromptData = {
@@ -69,7 +74,8 @@ const randomPrompt: PromptData = {
     strength: 0.5,
     style_preset: null,
     beforeImage: "random_before.png",
-    afterImage: "random_after.png"
+    afterImage: "random_after.png",
+    cfg_scale: 35
 }
 
 
