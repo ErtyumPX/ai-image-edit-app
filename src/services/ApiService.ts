@@ -55,6 +55,7 @@ export class ApiService {
         body.append('prompt', promptData.prompt);
         body.append('strength', promptData.strength.toString());
         body.append('style_preset', promptData.style_preset || '');
+        body.append('cfg_scale', promptData.cfg_scale.toString());
         const response = await fetchData('editor/edit', 'POST', body, headers);
         return response.json();
     }
