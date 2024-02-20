@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { allPrompts, PromptData } from './prompts';
+import styles from '../styles/prompt.module.css';
 
 interface PromptSelectionProps {
   confirmSelectionCallback: (prompt: PromptData) => Promise<void>;
@@ -28,7 +29,7 @@ const PromptSelection: React.FC<PromptSelectionProps> = ({confirmSelectionCallba
   }
 
   return (
-    <div>
+    <div >
       <h1>Select a Prompt</h1>
       <div>
         {allPrompts.map((prompt, index) => {

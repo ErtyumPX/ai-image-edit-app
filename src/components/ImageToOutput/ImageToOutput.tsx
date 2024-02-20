@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { PromptData } from './prompts';
+import { PromptData } from '../PromptSelection/prompts';
 import { ApiService } from '@/services/ApiService';
 import QRCode from 'qrcode.react';
 

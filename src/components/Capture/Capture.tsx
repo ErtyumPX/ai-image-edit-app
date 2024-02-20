@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import styles from './capture.module.css';
+
 
 interface CaptureProps {
   confirmCaptureCallback: (image64: string) => Promise<void>;
@@ -87,18 +89,19 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
 
 
   return (
-    <div>
-      { image
-        ? <img src={image} alt="Snapshot" />
-        : <video autoPlay ref={videoRef} />
-      }
+    <div className={styles.container}>
       { image
         ? 
         <>
-          <button onClick={retakePhoto}>Retake</button>
-          <button onClick={confirmImage}>Confirm</button>
+          <img className={styles.cameraContainer} src={image} alt="Snapshot" />
+          <button className={styles.generalButton} onClick={retakePhoto}>Retake</button>
+          <button className={styles.generalButton} onClick={confirmImage}>Confirm</button>
         </>
-        : <button onClick={captureSnapshot}>Capture</button>
+        : 
+        <>
+          <video className={styles.cameraContainer} autoPlay ref={videoRef} />
+          <button className={styles.generalButton} onClick={captureSnapshot}>Capture</button>
+        </>
       }
   </div>
   );

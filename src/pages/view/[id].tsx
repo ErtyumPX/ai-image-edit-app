@@ -1,7 +1,7 @@
 import { ApiService } from '@/services/ApiService';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import LoadingLayer from '@/components/LoadingLayer';
+import LoadingLayer from '@/components/LoadingLayer/LoadingLayer';
 
 const PhotoPage = () => {
   const router = useRouter();

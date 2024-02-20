@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
-import Capture from './Capture';
-import PromptSelection from './PromptSelection';
-import ImageToOutput from './ImageToOutput';
-import { PromptData } from './prompts';
+import Capture from '../Capture/Capture';
+import PromptSelection from '../PromptSelection/PromptSelection';
+import ImageToOutput from '../ImageToOutput/ImageToOutput';
+import { PromptData } from '../PromptSelection/prompts';
+import styles from './ai.module.css';
 
 enum AIPrompterState {
   CAPTURE,
@@ -33,6 +34,7 @@ const AIPrompter: React.FC = () => {
 
   return (
     <>
+      <div className={styles.background} />
       {state === AIPrompterState.CAPTURE && 
         <Capture confirmCaptureCallback={confirmImageCallback} />
       }
