@@ -54,7 +54,7 @@ const toyStoryPrompt: PromptData = {
     strength: 0.5,
     style_preset: 'digital-art',
     beforeImage: "toystory_before.png",
-    afterImage: "toystory_after.png",,
+    afterImage: "toystory_after.png",
     cfg_scale: 35
 }
 
