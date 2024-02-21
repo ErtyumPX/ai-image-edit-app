@@ -1,13 +1,28 @@
 .container {
-
+    display: grid;
+    align-items: center;
+    justify-content: center;
 }
 
 .cameraContainer {
+    border-width: 6px;
+    border-style: solid;
+    border-image: linear-gradient(rgb(59, 69, 148), rgb(175, 49, 65)) 1;
+}
 
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
 }
 
 .generalButton {
-    
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    border-radius: 10px;
 }
 
-
+.viewBox {
+    
+}
