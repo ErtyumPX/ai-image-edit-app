@@ -93,9 +93,7 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
       { image
         ? 
         <>
-          <view className={styles.viewBox}>
-            <img className={styles.cameraContainer} src={image} alt="Snapshot" width='1024' height={1024}/>
-          </view>
+          <img className={styles.cameraContainer} src={image} alt="Snapshot"/>
           <div className={styles.buttonContainer}>
             <button className={styles.generalButton} onClick={retakePhoto}>Retake</button>
             <button className={styles.generalButton} onClick={confirmImage}>Confirm</button>
@@ -103,9 +101,7 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
         </>
         : 
         <>
-          <view className={styles.viewBox}>
-            <video className={styles.cameraContainer} autoPlay ref={videoRef} width='1024' height={1024}/>
-          </view>
+          <video className={styles.cameraContainer} autoPlay ref={videoRef}/>
           <div className={styles.buttonContainer}>
             <button className={styles.generalButton} onClick={captureSnapshot}>Capture</button>
           </div>
