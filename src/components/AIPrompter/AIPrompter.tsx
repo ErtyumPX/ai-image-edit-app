@@ -33,18 +33,24 @@ const AIPrompter: React.FC = () => {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.background} />
-      {state === AIPrompterState.CAPTURE && 
-        <Capture confirmCaptureCallback={confirmImageCallback} />
-      }
-      {state === AIPrompterState.SELECT_PROMPT && 
-        <PromptSelection confirmSelectionCallback={confirmPromptCallback} />
-      }
-      {state === AIPrompterState.OUTPUT && image && selectedPrompt &&
-        <ImageToOutput rawImage={image} promptData={selectedPrompt} restartCallback={restartCallback}/>
-      }
-    </>
+      <div className={styles.logo}>
+        <img src="/ai_logo.svg" alt="Logo" />
+      </div>
+      <h1 className={styles.title}>Yapay Zeka Zirvesi</h1>
+      <div className={styles.content}>
+        {state === AIPrompterState.CAPTURE && 
+          <Capture confirmCaptureCallback={confirmImageCallback} />
+        }
+        {state === AIPrompterState.SELECT_PROMPT && 
+          <PromptSelection confirmSelectionCallback={confirmPromptCallback} />
+        }
+        {state === AIPrompterState.OUTPUT && image && selectedPrompt &&
+          <ImageToOutput rawImage={image} promptData={selectedPrompt} restartCallback={restartCallback}/>
+        }
+      </div>
+    </div>
   );
 }
 
