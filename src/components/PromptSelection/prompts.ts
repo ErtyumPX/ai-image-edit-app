@@ -51,7 +51,7 @@ const pixarPrompt: PromptData = {
 const toyStoryPrompt: PromptData = {
     title: "Toy Story",
     prompt: "A Toy Story scene",
-    strength: 0.4,
+    strength: 0.5,
     style_preset: 'digital-art',
     beforeImage: "toystory_before.png",
     afterImage: "toystory_after.png",
@@ -61,7 +61,7 @@ const toyStoryPrompt: PromptData = {
 const lotrPrompt: PromptData = {
     title: "Lord of the Rings",
     prompt: "A scene from the Lord of the Rings",
-    strength: 0.45,
+    strength: 0.5,
     style_preset: null,
     beforeImage: "lotr_before.png",
     afterImage: "lotr_after.png",
@@ -71,7 +71,7 @@ const lotrPrompt: PromptData = {
 const starWarsPrompt: PromptData = {
     title: "Star Wars",
     prompt: "A star wars scene",
-    strength: 0.4,
+    strength: 0.5,
     style_preset: null,
     beforeImage: "starWars_before.png",
     afterImage: "starWars_after.png",
