@@ -105,7 +105,7 @@ const PhotoPage = () => {
       onClick={() => fetchPhotosById(router.query.id as string)}>
         Fetch Photos
       </button>
-      </div>
+    </div>
   );
 };
 
