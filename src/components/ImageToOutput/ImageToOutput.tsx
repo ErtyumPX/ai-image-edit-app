@@ -43,8 +43,8 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, rest
             <p className={styles.qrText}>Bu QR kodu okutarak görsele erişebilirsiniz.</p>
           </div>
           <div className={styles.qrCard}>
-            <QRCode className={styles.qr} value='https://www.instagram.com/ituaiclub/' />
-            <p className={styles.qrText}>Bu QR kodu okutarak bizi Instagram'dan takip edebilirsiniz.</p>
+            <QRCode className={styles.qr} value="https://www.instagram.com/ituaiclub/" />
+            <p className={styles.qrText}>Bu QR kodu okutarak bizi Instagram&apos;dan takip edebilirsiniz.</p>
           </div>
           <div className={styles.qrCard}>
             <QRCode className={styles.qr} value='https://youtu.be/dQw4w9WgXcQ?si=I-cKfZ1uxOJOkM2D' />
