@@ -3,6 +3,7 @@ import { PromptData } from '../PromptSelection/prompts';
 import { ApiService } from '@/services/ApiService';
 import QRCode from 'qrcode.react';
 import styles from './output.module.css';
+import { PacmanLoader } from 'react-spinners';
 
 
 interface ImageToOutputProps {
@@ -36,7 +37,8 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, rest
   return (
     <div className={styles.container}>
       <img className={styles.cameraContainer} src={shownImage} alt="Image" />
-      {qrUrl &&
+      {qrUrl 
+      ?
         <>
           <div className={styles.qrCard}>
             <QRCode className={styles.qr} value={qrUrl} />
@@ -52,6 +54,10 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, rest
           </div>
           <button className={styles.generalButton} onClick={restartCallback}> Restart </button>
         </>
+      :
+        <div className={styles.loadingContainer}>
+          <PacmanLoader color='yellow'/>
+        </div>
       }
     </div>
   );
