@@ -2,6 +2,7 @@ import { ApiService } from '@/services/ApiService';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import LoadingLayer from '@/components/LoadingLayer/LoadingLayer';
+import styles from './view.module.css';
 
 const PhotoPage = () => {
   const router = useRouter();
@@ -69,21 +70,28 @@ const PhotoPage = () => {
   }
 
   return (
-    <div>
-      <h1>Photos for ID: {router.query.id}</h1>
+    <div className={styles.container}>
       {(rawImage64 && editedImage64) 
       ?
         <>
-          <img src={rawImage64} alt="Snapshot" />
-          <button onClick={() => downloadImage(rawImage64)}> Download </button>
-          {isAbleToShare && 
-            <button onClick={() => shareImage(rawImage64)}> Share </button>
-          }
-          <img src={editedImage64} alt="Edited Snapshot" />
-          <button onClick={() => downloadImage(editedImage64)}> Download </button>
-          {isAbleToShare && 
-            <button onClick={() => shareImage(editedImage64)}> Share </button>
-          }
+          <div className={styles.imageContainer}>
+            <img className={styles.image} src={rawImage64} alt="Snapshot" />
+            <div className={styles.buttonContainer}>
+              <button className={styles.generalButton} onClick={() => downloadImage(rawImage64)}> Download </button>
+              {isAbleToShare && 
+                <button className={styles.generalButton} onClick={() => shareImage(rawImage64)}> Share </button>
+              }
+            </div>
+          </div>
+          <div className={styles.imageContainer}>
+            <img className={styles.image} src={editedImage64} alt="Edited Snapshot" />
+            <div className={styles.buttonContainer}>
+              <button className={styles.generalButton} onClick={() => downloadImage(editedImage64)}> Download </button>
+              {isAbleToShare && 
+                <button className={styles.generalButton} onClick={() => shareImage(editedImage64)}> Share </button>
+              }
+            </div>
+          </div>
         </>
       :
         <>

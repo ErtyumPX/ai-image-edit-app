@@ -1,5 +1,6 @@
 .mainContainer {
   display: flex;
+  align-self: stretch;
   flex-direction: column;
   align-items: center;
   align-content: center;
@@ -12,21 +13,33 @@
 
 .buttonContainer {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
   border: 1px solid white;
-  margin: 2em 0em 2em 0em;
 }
 
 .generalButton {
-  width: 150px;
-  height: 50px;
+  width: 160px;
+  height: 80px;
   font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
   border-radius: 10px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 60px;
+  margin-right: 60px;
+  transition: 0.3s;
+  background-size: 200% auto;
+
+  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+
+.generalButton:hover {
+  background-position: right center; /* change the direction of the change here */
 }
 
 .exampleContainer {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin: 2em 0em 2em 0em;
 }
@@ -36,7 +49,7 @@
   border-style: solid;
   border-image: linear-gradient(rgb(59, 69, 148), rgb(175, 49, 65)) 1;
   object-fit: cover;
-  height: 256px;
+  width: 15vw;
   aspect-ratio: 1/1;
 }
 
@@ -46,5 +59,4 @@
 }
 
 .confirmButtonContainer {
-
 }
