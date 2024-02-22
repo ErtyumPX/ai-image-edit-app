@@ -93,6 +93,15 @@ const PhotoPage = () => {
               }
             </div>
           </div>
+          <p className={styles.joinUs}>
+            Tasarım yetişmediği için özür dileriz... 
+            Eğer daha iyisini yapabileceğinizi, 
+            bizimle çalışabileceğinizi düşünüyorsanız 
+            <a href="mailto:ertugrul.a.senturk@gmail.com"> bu arkadaşa </a>
+             veya
+            <a href="mailto:utkubicer24@gmail.com"> bu arkadaşa </a>
+             mail atabilirsiniz...
+          </p>
         </>
       :
         <>

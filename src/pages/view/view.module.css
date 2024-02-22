@@ -1,5 +1,5 @@
 .container {
-  background-color: black;
+  background-color: white;
   margin: 0px;
 
 }
@@ -18,31 +18,31 @@
 .image {
   border-width: 6px;
   border-style: solid;
-  border-image: linear-gradient(rgb(59, 69, 148), rgb(175, 49, 65)) 1;
+  border-image: linear-gradient(rgb(33, 33, 33), rgb(99, 99, 99)) 1;
   margin: 2em;
 }
 
 .generalButton {
-  width: 30vw;
+  width: 32vw;
   height: 6vh;
   font-size: 16px;
-  color: white;
+  color: black;
   font-family: "Poppins", sans-serif;
-  border-radius: 10px;
+  border-radius: 4px;
+  border: 3px solid black;
   margin-left: 60px;
   margin-right: 60px;
   margin-bottom: 3em;
   transition: 0.3s;
   background-size: 200% auto;
-
-  background-image: linear-gradient(to right,
-      #000 0%,
-      #333 51%,
-      #444 100%);
+  background-color: white;
 }
 
 
 .generalButton:hover {
-  background-position: right center;
-  /* change the direction of the change here */
+  background-color: #DDD;
+}
+
+.joinUs {
+  margin-top: 100em;
 }
