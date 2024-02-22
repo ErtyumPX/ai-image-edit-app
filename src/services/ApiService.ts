@@ -1,39 +1,37 @@
 import { PromptData } from "@/components/PromptSelection/prompts";
 
-const BASE_URL = 'http://localhost:3000';
-
-
-const fetchData = async (endpoint: string, method: string, body?: any, headers?: HeadersInit) => {
-    try {
-        const url = `${BASE_URL}/${endpoint}/`;
-        const fetchOptions: RequestInit = { method };
-        if (headers) {
-            fetchOptions.headers = headers;
-        }
-        if (body) {
-            fetchOptions.body = body;
-        }
-
-        const response = await fetch(url, fetchOptions);
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response;
-    } 
-    catch (error) {
-        console.error('Error fetching data:', error);
-        throw error;
-    }
-};
-
-
 export class ApiService {
+    static BASE_URL: string = process.env.NEXT_PUBLIC_API_URL as string;
+
+    static async fetchData(endpoint: string, method: string, body?: any, headers?: HeadersInit) {
+        try {
+            const url = `${ApiService.BASE_URL}/${endpoint}/`;
+            const fetchOptions: RequestInit = { method };
+            if (headers) {
+                fetchOptions.headers = headers;
+            }
+            if (body) {
+                fetchOptions.body = body;
+            }
+    
+            const response = await fetch(url, fetchOptions);
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response;
+        } 
+        catch (error) {
+            console.error('Error fetching data:', error);
+            throw error;
+        }
+    };
+
     static async testConnection() {
         const headers = new Headers();
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Content-Type', 'application/json');
-        const response = await fetchData('', 'GET', null, headers);
+        const response = await ApiService.fetchData('', 'GET', null, headers);
         return response.json();
     }
 
@@ -42,7 +40,7 @@ export class ApiService {
         const headers = new Headers();
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Content-Type', 'application/json');
-        const response = await fetchData('editor/test', 'GET', null, headers);
+        const response = await ApiService.fetchData('editor/test', 'GET', null, headers);
         return response.json();
     }
 
@@ -56,7 +54,7 @@ export class ApiService {
         body.append('strength', promptData.strength.toString());
         body.append('style_preset', promptData.style_preset || '');
         body.append('cfg_scale', promptData.cfg_scale.toString());
-        const response = await fetchData('editor/edit', 'POST', body, headers);
+        const response = await ApiService.fetchData('editor/edit', 'POST', body, headers);
         return response.json();
     }
 
@@ -65,7 +63,7 @@ export class ApiService {
         const headers = new Headers();
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Content-Type', 'application/json');
-        const rawImageResponse = await fetchData(`storage/get/${imageId}/${imageType}/${isFramed}`, 'GET', null, headers);
+        const rawImageResponse = await ApiService.fetchData(`storage/get/${imageId}/${imageType}/${isFramed}`, 'GET', null, headers);
         return rawImageResponse.text();
     }
 
