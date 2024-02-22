@@ -1,23 +1,50 @@
-.container {
-
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
 }
 
 .title {
-
+  font-family: 'Poppins', sans-serif;
 }
 
-.promptContainer {
 
-}
-
-.prompt {
-
-}
-
-.exampleImage {
-
+.buttonContainer {
+  display: flex;
+  border: 1px solid white;
+  margin: 2em 0em 2em 0em;
 }
 
 .generalButton {
-    
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.exampleContainer {
+  display: flex;
+  align-items: center;
+  margin: 2em 0em 2em 0em;
+}
+
+.exampleImage {
+  border-width: 6px;
+  border-style: solid;
+  border-image: linear-gradient(rgb(59, 69, 148), rgb(175, 49, 65)) 1;
+  object-fit: cover;
+  height: 256px;
+  aspect-ratio: 1/1;
+}
+
+.arrowIcon {
+  height: 6em;
+  margin: 0em 4em 0em 4em;
+}
+
+.confirmButtonContainer {
+
 }

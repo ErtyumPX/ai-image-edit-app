@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { allPrompts, PromptData } from './prompts';
+import { ArrowIcon } from './arrow';
 import styles from './prompt.module.css';
 
 interface PromptSelectionProps {
@@ -32,24 +33,26 @@ const PromptSelection: React.FC<PromptSelectionProps> = ({confirmSelectionCallba
   Onayladığınız fotoğraflarınız sonradan sosyal medyada kullanılabilir. Uygulamayı kullanarak buna onay verdiğiniz unutmayınız!
   */
   return (
-    <div>
-      <h1>Select a Prompt</h1>
-      <div>
+    <div className={styles.mainContainer}>
+      <div className={styles.buttonContainer}>
         {allPrompts.map((prompt, index) => {
           return (
             <div key={index}>
-              <button onClick={() => selectPrompt(index)}> {prompt.title} </button>
+              <button className={styles.generalButton} onClick={() => selectPrompt(index)}> {prompt.title} </button>
             </div>
           );
         })}
       </div>
       {beforeImage && afterImage && 
-      <>
-        <img src={beforeImage} alt="before" />
-        <img src={afterImage} alt="after" />
-      </>
+      <div className={styles.exampleContainer}>
+        <img className={styles.exampleImage} src={beforeImage} alt="before" />
+          <ArrowIcon className={styles.arrowIcon}/> 
+        <img className={styles.exampleImage} src={afterImage} alt="after" />
+      </div>
       }
-      <button onClick={confirmSelection}> Confirm </button>
+      <div className={styles.confirmButtonContainer}>
+        <button className={styles.generalButton} onClick={confirmSelection}> Devam :)</button>
+      </div>
     </div>
   );
 }
