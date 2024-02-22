@@ -19,7 +19,7 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, rest
   const [qrUrl, setQrUrl] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    //sendImagetoAPI(rawImage);
+    sendImagetoAPI(rawImage);
   }, []);
 
   const sendImagetoAPI = async (image64: string) => {
