@@ -11,7 +11,7 @@ interface ImageToOutputProps {
     restartCallback: () => Promise<void>;
 }
 
-const pageUrl = 'http://localhost:5000/view/';
+const pageUrl = process.env.NEXT_PUBLIC_VIEW_URL;
 
 const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, restartCallback}) => {
   const [shownImage, setShownImage] = useState<string>(rawImage);
