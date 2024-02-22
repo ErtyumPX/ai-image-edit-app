@@ -4,7 +4,6 @@ import { ApiService } from '@/services/ApiService';
 import QRCode from 'qrcode.react';
 import styles from './output.module.css';
 
-import styles from './output.module.css'
 
 interface ImageToOutputProps {
     rawImage: string;
