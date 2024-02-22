@@ -71,6 +71,7 @@ const PhotoPage = () => {
 
   return (
     <div className={styles.container}>
+      <div className={styles.background} />
       {(rawImage64 && editedImage64) 
       ?
         <>
