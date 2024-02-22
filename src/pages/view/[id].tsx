@@ -27,8 +27,8 @@ const PhotoPage = () => {
         console.error('Invalid ID: ', id);
         throw new Error('Invalid ID');
       }
-      const requestedEditedImage64 = await ApiService.getImageRequest(id as string, "edited");
-      const requestedRawImage64 = await ApiService.getImageRequest(id as string, "raw");
+      const requestedEditedImage64 = await ApiService.getImageRequest(id as string, "edited", true);
+      const requestedRawImage64 = await ApiService.getImageRequest(id as string, "raw", true);
       const editedImageWithMetaData = 'data:image/png;base64,' + requestedEditedImage64;
       const rawImageWithMetaData = 'data:image/png;base64,' + requestedRawImage64;
       setEditedImage64(editedImageWithMetaData);

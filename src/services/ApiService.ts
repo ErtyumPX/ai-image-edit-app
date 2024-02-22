@@ -61,11 +61,11 @@ export class ApiService {
     }
 
 
-    static async getImageRequest(imageId: string, imageType: "raw" | "edited") {
+    static async getImageRequest(imageId: string, imageType: "raw" | "edited", isFramed: boolean) {
         const headers = new Headers();
         headers.append('Access-Control-Allow-Origin', '*');
         headers.append('Content-Type', 'application/json');
-        const rawImageResponse = await fetchData(`storage/get/${imageId}/${imageType}`, 'GET', null, headers);
+        const rawImageResponse = await fetchData(`storage/get/${imageId}/${imageType}/${isFramed}`, 'GET', null, headers);
         return rawImageResponse.text();
     }
 
