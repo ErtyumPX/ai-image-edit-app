@@ -1,4 +1,4 @@
-import { PromptData } from "@/components/prompts";
+import { PromptData } from "@/components/PromptSelection/prompts";
 
 const BASE_URL = 'http://localhost:3000';
 
