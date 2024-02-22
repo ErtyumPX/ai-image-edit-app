@@ -53,10 +53,14 @@ const PhotoPage = () => {
   const shareImage = async (imageIn64: string) => {
     if (navigator.share) {
       try {
+        const image_blob = await fetch(imageIn64)
+        .then(res => res.blob());
         await navigator.share({
+          files: [
+            new File([image_blob], 'image.png', {type: image_blob.type})
+          ],
           title: 'Image Share',
           text: 'Check out this image',
-          url: imageIn64,
         });
       } 
       catch (error) {
