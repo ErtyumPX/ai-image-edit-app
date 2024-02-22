@@ -5,12 +5,23 @@
 }
 
 .cameraContainer {
-  border-width: 6px;
-  border-style: solid;
-  border-image: linear-gradient(rgb(59, 69, 148), rgb(175, 49, 65)) 1;
-  object-fit: cover;
-  height: 100%;
-  aspect-ratio: 1/1;
+    border-width: 6px;
+    border-style: solid;
+    border-image: linear-gradient(rgb(59, 69, 148), rgb(175, 49, 65)) 1;
+    object-fit: cover;
+    height: 100%;
+    aspect-ratio: 1/1;
+    margin-bottom: 2em;
+}
+
+.countdown {
+    position: relative;
+    margin: 0.1em;
+    font-size: 3em;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
 }
 
 .buttonContainer {

@@ -13,6 +13,7 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
   const [error, setError] = useState<string | null>(null);
   const [image, setImage] = useState<string | undefined>(undefined);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [countdown, setCountdown] = useState<number | null>(null);
 
   useEffect(() => {
     console.log(typeof confirmCaptureCallback);
@@ -48,15 +49,17 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
   const captureSnapshot = () => {
     // wait for 3 seconds, log 3 2 1 to console and then take snapshot
     let count = 3;
+    setCountdown(count);
     console.log(count);
     const interval = setInterval(() => {
       count--;
+      setCountdown(count);
       console.log(count);
       if (count === 0) {
         clearInterval(interval);
         takeSnapshot();
       }
-    }, 1);
+    }, 1000);
   }
 
   const takeSnapshot = () => {
@@ -102,9 +105,14 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
         : 
         <>
           <video className={styles.cameraContainer} autoPlay ref={videoRef}/>
-          <div className={styles.buttonContainer}>
-            <button className={styles.generalButton} onClick={captureSnapshot}>Capture</button>
-          </div>
+          {countdown
+          ?
+            <p className={styles.countdown}>{countdown}</p>
+          :
+            <div className={styles.buttonContainer}>
+              <button className={styles.generalButton} onClick={captureSnapshot}>Capture</button>
+            </div>
+          }
         </>
       }
   </div>
