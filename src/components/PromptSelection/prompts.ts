@@ -33,8 +33,8 @@ const disneyPrompt: PromptData = {
     prompt: "A person in a Disney universe as a Disney character",
     strength: 0.5,
     style_preset: 'digital-art',
-    beforeImage: "/disney_before.png",
-    afterImage: "/disney_after.png",
+    beforeImage: "/disney_before.jpg",
+    afterImage: "/disney_after.jpg",
     cfg_scale: 35
 }
 
@@ -43,8 +43,8 @@ const pixarPrompt: PromptData = {
     prompt: "A Pixar movie scene",
     strength: 0.6,
     style_preset: null,
-    beforeImage: "/pixar_before.png",
-    afterImage: "/pixar_after.png",
+    beforeImage: "/pixar_before.jpg",
+    afterImage: "/pixar_after.jpg",
     cfg_scale: 35
 }
 
@@ -53,8 +53,8 @@ const toyStoryPrompt: PromptData = {
     prompt: "A Toy Story scene",
     strength: 0.5,
     style_preset: 'digital-art',
-    beforeImage: "/toystory_before.png",
-    afterImage: "/toystory_after.png",
+    beforeImage: "/toy_before.jpg",
+    afterImage: "/toy_after.jpg",
     cfg_scale: 35
 }
 
@@ -63,8 +63,8 @@ const lotrPrompt: PromptData = {
     prompt: "A scene from the Lord of the Rings",
     strength: 0.5,
     style_preset: null,
-    beforeImage: "/lotr_before.png",
-    afterImage: "/lotr_after.png",
+    beforeImage: "/lord_before.jpg",
+    afterImage: "/lord_after.jpg",
     cfg_scale: 35
 }
 
@@ -73,8 +73,8 @@ const starWarsPrompt: PromptData = {
     prompt: "A star wars scene",
     strength: 0.5,
     style_preset: null,
-    beforeImage: "/starWars_before.png",
-    afterImage: "/starWars_after.png",
+    beforeImage: "/star_before.jpg",
+    afterImage: "/star_after.jpg",
     cfg_scale: 35
 }
 
@@ -83,8 +83,8 @@ const vanGoghPrompt: PromptData = {
     prompt: "A painting from Van Gogh",
     strength: 0.6,
     style_preset: null,
-    beforeImage: "/vanGogh_before.png",
-    afterImage: "/vanGogh_after.png",
+    beforeImage: "/van_before.jpg",
+    afterImage: "/van_after.jpg",
     cfg_scale: 35
 }
 
@@ -93,8 +93,8 @@ const animePrompt: PromptData = {
     prompt: "An anime scene",
     strength: 0.5,
     style_preset: "anime",
-    beforeImage: "/anime_before.png",
-    afterImage: "/anime_after.png",
+    beforeImage: "/anime_before.jpg",
+    afterImage: "/anime_after.jpg",
     cfg_scale: 35
 }
 
@@ -103,8 +103,8 @@ const comicBookPrompt: PromptData = {
     prompt: "A page from a comic book",
     strength: 0.5,
     style_preset: "comic-book",
-    beforeImage: "/comicBook_before.png",
-    afterImage: "/comicBook_after.png",
+    beforeImage: "/comic_before.jpg",
+    afterImage: "/comic_after.jpg",
     cfg_scale: 35
 }
 
@@ -113,8 +113,8 @@ const ninetiesPrompt: PromptData = {
     prompt: "A photograph taken from 90's",
     strength: 0.6,
     style_preset: "analog-film",
-    beforeImage: "/nineties_before.png",
-    afterImage: "/nineties_after.png",
+    beforeImage: "/nineties_before.jpg",
+    afterImage: "/nineties_after.jpg",
     cfg_scale: 35
 }
 
@@ -123,8 +123,8 @@ const yearbookPrompt: PromptData = {
     prompt: "A photograph from a highschool yearbook",
     strength: 0.4,
     style_preset: null,
-    beforeImage: "/yearbook_before.png",
-    afterImage: "/yearbook_after.png",
+    beforeImage: "/yearbook_before.jpg",
+    afterImage: "/yearbook_after.jpg",
     cfg_scale: 35
 }
 
@@ -133,8 +133,8 @@ const videoGamePrompt: PromptData = {
     prompt: "A screenshot from a video game",
     strength: 0.45,
     style_preset: "digital-art",
-    beforeImage: "/videoGame_before.png",
-    afterImage: "/videoGame_after.png",
+    beforeImage: "/video_before.jpg",
+    afterImage: "/video_after.jpg",
     cfg_scale: 35
 }
 
@@ -143,8 +143,8 @@ const sketchPrompt: PromptData = {
     prompt: "A sketch drawing",
     strength: 0.435,
     style_preset: "line-art",
-    beforeImage: "/sketch_before.png",
-    afterImage: "/sketch_after.png",
+    beforeImage: "/sketch_before.jpg",
+    afterImage: "/sketch_after.jpg",
     cfg_scale: 35
 }
 
