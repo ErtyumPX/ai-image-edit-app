@@ -1,5 +1,9 @@
 .container {
   display: flex;
+  height: 100vh;
+  align-self: stretch;
+  justify-self: stretch;
+  background-color: black;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10em;
@@ -19,7 +23,7 @@
   border-width: 6px;
   border-style: solid;
   border-image: linear-gradient(rgb(59, 69, 148), rgb(175, 49, 65)) 1;
-  height: 70vh;
+  height: 50vh;
   aspect-ratio: 3/4;
 }
 
@@ -27,7 +31,7 @@
   width: 160px;
   height: 80px;
   font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Poppins', sans-serif;
   border-radius: 10px;
   margin-left: 60px;
   margin-right: 60px;
