@@ -18,20 +18,32 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, rest
   const [shownImage, setShownImage] = useState<string>(rawImage);
   const [imageID, setImageID] = useState<string | undefined>(undefined);
   const [qrUrl, setQrUrl] = useState<string | undefined>(undefined);
+  const [waiting, setWaiting] = useState<boolean>(false);
 
   useEffect(() => {
     sendImagetoAPI(rawImage);
   }, []);
 
   const sendImagetoAPI = async (image64: string) => {
-    const blob = await fetch(image64).then(r => r.blob());
-    const imageFile =new File([blob], 'snapshot.png', { type: 'image/png' });
-    const response = await ApiService.sendImageRequest(imageFile, promptData);
-    console.log(response);
-    const imageUrl = 'data:image/png;base64,' + response.artifacts[0].base64;
-    setImageID(response.image_id);
-    setQrUrl(pageUrl + response.image_id);
-    setShownImage(imageUrl);
+    if (waiting) return;
+    try {
+      setWaiting(true);
+      const blob = await fetch(image64).then(r => r.blob());
+      const imageFile =new File([blob], 'snapshot.png', { type: 'image/png' });
+      const response = await ApiService.sendImageRequest(imageFile, promptData);
+      console.log(response);
+      const imageUrl = 'data:image/png;base64,' + response.artifacts[0].base64;
+      setImageID(response.image_id);
+      setQrUrl(pageUrl + response.image_id);
+      setShownImage(imageUrl);
+      setWaiting(false);
+    }
+    catch (error) {
+      console.error('Error fetching photos:', error);
+      setTimeout(() => {
+        sendImagetoAPI(image64);
+      }, 400);
+    }
   }
 
   return (
