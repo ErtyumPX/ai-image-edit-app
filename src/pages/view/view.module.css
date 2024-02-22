@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10em;
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  border-width: 6px;
+  border-style: solid;
+  border-image: linear-gradient(rgb(59, 69, 148), rgb(175, 49, 65)) 1;
+  height: 70vh;
+  aspect-ratio: 3/4;
+}
+
+.generalButton {
+  width: 160px;
+  height: 80px;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+  transition: 0.3s;
+  background-size: 200% auto;
+
+  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+
+.generalButton:hover {
+  background-position: right center; /* change the direction of the change here */
+}
