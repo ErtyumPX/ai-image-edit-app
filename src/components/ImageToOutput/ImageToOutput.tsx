@@ -3,6 +3,8 @@ import { PromptData } from '../PromptSelection/prompts';
 import { ApiService } from '@/services/ApiService';
 import QRCode from 'qrcode.react';
 
+import styles from './output.module.css'
+
 interface ImageToOutputProps {
     rawImage: string;
     promptData: PromptData;
@@ -32,10 +34,25 @@ const ImageToOutput: React.FC<ImageToOutputProps> = ({rawImage, promptData, rest
   }
 
   return (
-    <div>
-      <img src={shownImage} alt="Image" />
-      {qrUrl && <QRCode value={qrUrl} />}
-      <button onClick={restartCallback}> Restart </button>
+    <div className={styles.container}>
+      <img className={styles.cameraContainer} src={shownImage} alt="Image" />
+      {qrUrl &&
+        <>
+          <div className={styles.qrCard}>
+            <QRCode className={styles.qr} value={qrUrl} />
+            <p className={styles.qrText}>Bu QR kodu okutarak görsele erişebilirsiniz.</p>
+          </div>
+          <div className={styles.qrCard}>
+            <QRCode className={styles.qr} value='https://www.instagram.com/ituaiclub/' />
+            <p className={styles.qrText}>Bu QR kodu okutarak bizi Instagram'dan takip edebilirsiniz.</p>
+          </div>
+          <div className={styles.qrCard}>
+            <QRCode className={styles.qr} value='https://youtu.be/dQw4w9WgXcQ?si=I-cKfZ1uxOJOkM2D' />
+            <p className={styles.qrText}>Bu QR kod hiçbir işe yaramıyor.</p>
+          </div>
+          <button className={styles.generalButton} onClick={restartCallback}> Restart </button>
+        </>
+      }
     </div>
   );
 }
