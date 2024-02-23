@@ -38,7 +38,7 @@ const AIPrompter: React.FC = () => {
       <div className={styles.logo}>
         <img src="/ai_logo.svg" alt="Logo" />
       </div>
-      <h1 className={styles.title}>Yapay Zeka Zirvesi</h1>
+      <h1 className={styles.title}>Gel Fotoğraf Çektir!</h1>
       <div className={styles.content}>
         {state === AIPrompterState.CAPTURE && 
           <Capture confirmCaptureCallback={confirmImageCallback} />

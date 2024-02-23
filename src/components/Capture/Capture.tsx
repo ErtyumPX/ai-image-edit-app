@@ -47,8 +47,7 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
   }
 
   const captureSnapshot = () => {
-    // wait for 3 seconds, log 3 2 1 to console and then take snapshot
-    let count = 3;
+    let count = 5;
     setCountdown(count);
     console.log(count);
     const interval = setInterval(() => {
@@ -80,6 +79,7 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
   const retakePhoto = () => {
     setImage(undefined);
     startCamera();
+    captureSnapshot();
   }
 
   const confirmImage = () => {
@@ -98,8 +98,8 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
         <>
           <img className={styles.cameraContainer} src={image} alt="Snapshot"/>
           <div className={styles.buttonContainer}>
-            <button className={styles.generalButton} onClick={retakePhoto}>Retake</button>
-            <button className={styles.generalButton} onClick={confirmImage}>Confirm</button>
+            <button className={styles.generalButton} onClick={retakePhoto}>Tekrar Çek</button>
+            <button className={styles.generalButton} onClick={confirmImage}>Devam Et</button>
           </div>
         </>
         : 
@@ -110,7 +110,7 @@ const Capture: React.FC<CaptureProps> = ({ confirmCaptureCallback }) => {
             <p className={styles.countdown}>{countdown}</p>
           :
             <div className={styles.buttonContainer}>
-              <button className={styles.generalButton} onClick={captureSnapshot}>Capture</button>
+              <button className={styles.generalButton} onClick={captureSnapshot}>Çek</button>
             </div>
           }
         </>
