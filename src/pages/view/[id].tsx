@@ -60,7 +60,6 @@ const PhotoPage = () => {
             new File([image_blob], 'image.png', {type: image_blob.type})
           ],
           title: 'Image Share',
-          text: 'Check out this image',
         });
       } 
       catch (error) {
